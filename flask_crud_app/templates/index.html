@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Daftar Siswa</h2>
+    <a href="{{ url_for('tambah') }}" class="btn btn-primary">Tambah Siswa</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Umur</th>
+            <th>Alamat</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for siswa in siswa_list %}
+        <tr>
+            <td>{{ siswa.id }}</td>
+            <td>{{ siswa.nama }}</td>
+            <td>{{ siswa.umur }}</td>
+            <td>{{ siswa.alamat }}</td>
+            <td>
+                <a href="{{ url_for('ubah', id=siswa.id) }}" class="btn btn-warning btn-sm">Ubah</a>
+                <a href="{{ url_for('hapus', id=siswa.id) }}" class="btn btn-danger btn-sm" 
+                   onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Tambah Siswa Baru</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="nama" class="form-label">Nama</label>
+        <input type="text" class="form-control" id="nama" name="nama" required>
+    </div>
+    <div class="mb-3">
+        <label for="umur" class="form-label">Umur</label>
+        <input type="number" class="form-control" id="umur" name="umur" required>
+    </div>
+    <div class="mb-3">
+        <label for="alamat" class="form-label">Alamat</label>
+        <textarea class="form-control" id="alamat" name="alamat" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Simpan</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Batal</a>
+</form>
+{% endblock %}
